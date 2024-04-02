@@ -1,7 +1,11 @@
 def display_for(config):
     # config has been normalized already in utils.load_config
-    if config['ui']['display']['type'] == 'inky':
+    if config['ui']['display']['type'] == 'inky_1':
         from pwnagotchi.ui.hw.inky import Inky
+        return Inky(config)
+    
+    if config['ui']['display']['type'] == 'inky_2':
+        from pwnagotchi.ui.hw.inky2 import Inky
         return Inky(config)
 
     elif config['ui']['display']['type'] == 'wavesharelcd0in96':
